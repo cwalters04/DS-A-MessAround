@@ -97,12 +97,15 @@ class BST:
     def max(self) -> Optional[int]:
         return None if self.root is None else self._max_node(self.root).val
 
+def main():
+    t = BST([5, 2, 8, 1, 3, 7, 9, 3])
 
-t = BST([5, 2, 8, 1, 3, 7, 9, 3])
-list(t.inorder())   # -> [1, 2, 3, 3, 5, 7, 8, 9]
-t.contains(7)       # -> True
-t.delete(2)
-list(t.inorder())   # -> [1, 3, 3, 5, 7, 8, 9]
-t.sum()             # -> 36
-t.min(), t.max()    # -> (1, 9)
+    print("Inorder traversal (initial):", list(t.inorder()))   # [1, 2, 3, 3, 5, 7, 8, 9]
+    print("Contains 7?", t.contains(7))                        # True
 
+    t.delete(2)
+    print("After deleting 2:", list(t.inorder()))              # [1, 3, 3, 5, 7, 8, 9]
+
+    print("Sum of all values:", t.sum())                       # 36
+    print("Min and Max:", (t.min(), t.max()))                  # (1, 9)
+main()
